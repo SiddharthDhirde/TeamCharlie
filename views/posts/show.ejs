@@ -6,7 +6,7 @@
             <div class="thumbnail">
                 <img class="img-responsive" src="<%=post.image%>">
                 <div class="caption-full">
-                    <h3> <a href="/"><%=post.name %></a> </h1>
+                    <h3 class="titleColor"><%=post.name %></h3>
                     <p><%= post.description %></p>
                     <p> <em>Created By <%= post.author.username %></em> </p>
                     <% if(currentUser && post.author.id.equals(currentUser._id)){ %>
