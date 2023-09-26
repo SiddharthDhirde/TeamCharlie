@@ -1,16 +1,16 @@
 // Om Namah Shivay
 
-var express = require('express');
-var app = express();
-var port = process.env.PORT || 3000;
+var express    = require('express');
+var app        = express();
+var port       = process.env.PORT || 3000;
 var bodyParser = require("body-parser");
 
 // Authentication requirements
-var   User                  = require("./models/user");
-var   passport              = require("passport");
-var   LocalStrategy         = require("passport-local");
-var   methodOverride        = require("method-override");
-var   flash                 = require("connect-flash");
+var User                  = require("./models/user");
+var passport              = require("passport");
+var LocalStrategy         = require("passport-local");
+var methodOverride        = require("method-override");
+var flash                 = require("connect-flash");
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
@@ -22,12 +22,13 @@ var mongoose        = require("mongoose");
 
 // Requiring Routes
 var commentRoute    = require("./routes/comments"),
-    postRoutes= require("./routes/posts"),
+    postRoutes      = require("./routes/posts"),
     indexRoutes     = require("./routes/index");
    
 
 // connection string for application code of mongodb atlas
-const dbURL = "mongodb+srv://SherlockHolmes:TheGameIsOn@clustercharlie.igjypj0.mongodb.net/"
+const dotenv = require('dotenv'); dotenv.config();
+const dbURL  = process.env.DB_URL || 'mongodb://localhost:27017/' ;
 const connectionParams = {
     useNewUrlParser: true,
     useUnifiedTopology: true
